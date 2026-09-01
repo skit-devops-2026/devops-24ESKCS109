@@ -1,4 +1,4 @@
-# <Project Name>
+# Digital Bank
 
 > Replace every angle-bracket placeholder below. The hygiene check in CI will
 > fail until you do.
@@ -7,17 +7,17 @@
 
 | Roll No. | Name | GitHub username |
 |---|---|---|
-| <roll> | <name> | <username> |
+| 24ESKCS109 | Devanshu Agarwal | Devanshu4116 |
 
 ## About
 
-<Two or three sentences on what this application does.>
+Digital Bank is a web-based banking application that provides users with a modern interface to manage their banking activities. Users can access features such as account information, transactions, money transfers, cards, and profile settings. The application focuses on providing a simple and user-friendly digital banking experience.
 
 ## Tech stack
 
-- Frontend: <e.g. React>
-- Backend: <e.g. Node.js / Express>
-- Database: <e.g. PostgreSQL>
+- Frontend: HTML, CSS, JS
+- Backend: Not yet
+- Database: Not yet
 
 ## Running locally
 
