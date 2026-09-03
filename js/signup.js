@@ -72,143 +72,49 @@ toggleConfirmPassword.addEventListener("click", () => {
 // VALIDATION FUNCTIONS
 // ========================================
 
-function validateName() {
+function validateNameField() {
+    const result = validateName(fullname.value);
 
-    const name = fullname.value.trim();
+    errorName.textContent = result.message;
 
-    if (name === "") {
-
-        errorName.textContent = "Please enter your full name.";
-
-        return false;
-    }
-
-    if (name.length < 3) {
-
-        errorName.textContent =
-            "Name must contain at least 3 characters.";
-
-        return false;
-    }
-
-    errorName.textContent = "";
-
-    return true;
+    return result.valid;
 }
 
 
-function validateEmail() {
+function validateEmailField() {
+    const result = validateEmail(email.value);
 
-    const emailValue = email.value.trim();
+    errorEmail.textContent = result.message;
 
-    const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailValue === "") {
-
-        errorEmail.textContent =
-            "Please enter your email address.";
-
-        return false;
-    }
-
-    if (!emailPattern.test(emailValue)) {
-
-        errorEmail.textContent =
-            "Please enter a valid email address.";
-
-        return false;
-    }
-
-    errorEmail.textContent = "";
-
-    return true;
+    return result.valid;
 }
 
+function validatePasswordField() {
+    const result = validatePassword(password.value);
 
-function validatePassword() {
+    errorPassword.textContent = result.message;
 
-    const passwordValue = password.value;
-
-    if (passwordValue === "") {
-
-        errorPassword.textContent =
-            "Please enter a password.";
-
-        return false;
-    }
-
-    if (passwordValue.length < 8) {
-
-        errorPassword.textContent =
-            "Password must contain at least 8 characters.";
-
-        return false;
-    }
-
-    if (!/[A-Z]/.test(passwordValue)) {
-
-        errorPassword.textContent =
-            "Password must contain at least one uppercase letter.";
-
-        return false;
-    }
-
-    if (!/[0-9]/.test(passwordValue)) {
-
-        errorPassword.textContent =
-            "Password must contain at least one number.";
-
-        return false;
-    }
-
-    errorPassword.textContent = "";
-
-    return true;
+    return result.valid;
 }
 
+function validateConfirmPasswordField() {
+    const result = validateConfirmPassword(
+        password.value,
+        confirmPassword.value
+    );
 
-function validateConfirmPassword() {
+    errorConfirm.textContent = result.message;
 
-    const confirmValue = confirmPassword.value;
-
-    if (confirmValue === "") {
-
-        errorConfirm.textContent =
-            "Please confirm your password.";
-
-        return false;
-    }
-
-    if (confirmValue !== password.value) {
-
-        errorConfirm.textContent =
-            "Passwords do not match.";
-
-        return false;
-    }
-
-    errorConfirm.textContent = "";
-
-    return true;
+    return result.valid;
 }
 
+function validateTermsField() {
+    const result = validateTerms(terms.checked);
 
-function validateTerms() {
+    errorTerms.textContent = result.message;
 
-    if (!terms.checked) {
-
-        errorTerms.textContent =
-            "Please accept the Terms & Conditions.";
-
-        return false;
-    }
-
-    errorTerms.textContent = "";
-
-    return true;
+    return result.valid;
 }
-
 
 // ========================================
 // FORM SUBMISSION
@@ -218,11 +124,11 @@ signupForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
-    const isNameValid = validateName();
-    const isEmailValid = validateEmail();
-    const isPasswordValid = validatePassword();
-    const isConfirmValid = validateConfirmPassword();
-    const areTermsValid = validateTerms();
+    const isNameValid = validateNameField();
+    const isEmailValid = validateEmailField();
+    const isPasswordValid = validatePasswordField();
+    const isConfirmValid = validateConfirmPasswordField();
+    const areTermsValid = validateTermsField();
 
     const isFormValid =
         isNameValid &&
