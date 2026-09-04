@@ -23,6 +23,7 @@
   "homepage": "https://github.com/skit-devops-2026/devops-24ESKCS109#readme",
   "devDependencies": {
     "jest": "^30.5.1",
+    "jest-environment-jsdom": "^30.5.1",
     "jsdom": "^30.0.1"
   }
 }
