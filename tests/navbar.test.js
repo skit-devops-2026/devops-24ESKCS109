@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const navbarScript = fs.readFileSync(
-    path.join(__dirname, "../js/navbar.js"),
+    path.join(__dirname, "../js/common/navbar.js"),
     "utf8"
 );
 
