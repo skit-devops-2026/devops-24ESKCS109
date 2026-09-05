@@ -1,6 +1,6 @@
 // DigitalBank — homepage interactions
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeHome() {
 
     const prefersReducedMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)'
@@ -29,9 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         },
-        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        }
     );
 
     targets.forEach((el) => observer.observe(el));
 
-});
+}
+
+
+if (typeof module !== "undefined") {
+    module.exports = {
+        initializeHome
+    };
+}
+
+
+if (typeof document !== "undefined") {
+
+    document.addEventListener(
+        'DOMContentLoaded',
+        initializeHome
+    );
+
+}
