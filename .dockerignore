@@ -1,0 +1,22 @@
+cat > .dockerignore <<'EOF'
+.git
+.github
+node_modules
+tests
+docs
+k8s
+monitoring
+scripts
+.env
+.env.*
+!.env.example
+package.json
+package-lock.json
+Jenkinsfile
+Makefile
+README.md
+jest.config.js
+.dockerignore
+Dockerfile
+docker-compose.yml
+EOF

@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        COMMIT_SHA: ${COMMIT_SHA:-local}
+    image: digital-bank:local
+    ports:
+      - "8081:80"
+    restart: unless-stopped
