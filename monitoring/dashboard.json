@@ -1,0 +1,62 @@
+
+{
+  "uid": "digital-bank-health",
+  "title": "Digital Bank Health Monitoring",
+  "tags": ["digital-bank", "devops"],
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Health Endpoint Availability",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "expr": "probe_success{job=\"digital-bank-health\"}",
+          "legendFormat": "Health endpoint up",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {"h": 6, "w": 8, "x": 0, "y": 0}
+    },
+    {
+      "id": 2,
+      "title": "HTTP Response Status",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "expr": "probe_http_status_code{job=\"digital-bank-health\"}",
+          "legendFormat": "HTTP status",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {"h": 8, "w": 12, "x": 8, "y": 0}
+    },
+    {
+      "id": 3,
+      "title": "Health Check Response Time",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "targets": [
+        {
+          "expr": "probe_duration_seconds{job=\"digital-bank-health\"}",
+          "legendFormat": "Response time",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+    }
+  ]
+}

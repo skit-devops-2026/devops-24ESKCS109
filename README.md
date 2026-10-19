@@ -28,9 +28,20 @@ make run
 
 ## Live URL
 
-<Add once M5 is done. Until then, leave as is.>
+- **Application:** https://digital-bank-latest.onrender.com/
 
 ## Health endpoint
 
 `GET /health` returns the running commit SHA. See `Makefile` and the milestone
 sheet for why this is required.
+
+
+
+
+## Monitoring
+
+Prometheus configuration: [`monitoring/prometheus.yml`](monitoring/prometheus.yml)
+
+Grafana dashboard: [`monitoring/dashboard.json`](monitoring/dashboard.json)
+
+Deployment screenshot: [`docs/deployment.png`](docs/deployment.png)
