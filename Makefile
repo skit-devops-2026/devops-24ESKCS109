@@ -1,4 +1,4 @@
-cat > Makefile <<'EOF'
+
 .PHONY: install test build run docker-build docker-up
 
 install:
@@ -18,4 +18,3 @@ docker-build:
 
 docker-up:
 	docker compose up --build
-EOF
